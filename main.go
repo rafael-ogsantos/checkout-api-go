@@ -3,6 +3,7 @@ package main
 import (
 	db "github.com/rafael-ogsantos/checkout-api-go/database"
 	"github.com/rafael-ogsantos/checkout-api-go/database/migrations"
+	"github.com/rafael-ogsantos/checkout-api-go/routes"
 )
 
 type Migration interface {
@@ -15,12 +16,10 @@ func MigrateA(table Migration) {
 
 func main() {
 	db.Connect()
-	// product := migrations.ProductTable{}
+	routes.HundleRequest()
+	product := migrations.ProductTable{}
 	kart := migrations.KartTable{}
 
-	// MigrateA(&product)
+	MigrateA(&product)
 	MigrateA(&kart)
-
-	// product.Migrate()
-	kart.Migrate()
 }

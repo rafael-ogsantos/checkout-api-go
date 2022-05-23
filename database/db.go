@@ -22,8 +22,6 @@ func Connect() {
 		log.Fatal(err)
 	}
 
-	// defer db.Close()
-
 	DB = bun.NewDB(db, pgdialect.New())
 
 	DB.AddQueryHook(bundebug.NewQueryHook(
